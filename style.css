@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+h1 {
+    margin: 5px;
+    text-align: center;
+}
+
+.add-student {
+    padding-left: 15px;
+}
+
+.table-wrapper {
+    width: max-content;
+    margin: auto;
+}
+
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    box-shadow: 0 0 1px #b6b6b6;
+}
+
+th, td {
+    padding: 15px;
+}
+
+th {
+    background: #f2f2f2;
+    text-align: center;
+}
+
+td {
+    border-bottom: 1px solid #f2f2f2;
+    text-align: center;
+}
+
+.form-wrapper {
+    width: max-content;
+    margin: auto;
+    margin-top: 25px;
+}
+
+form div {
+    margin: 5px 0;
+}
+
+input {
+    padding: 3px;
+}
+
+label {
+    display: inline-block;
+    min-width: 50px;
+}
+
+form button {
+    display: block;
+    margin-left: auto;
+}
+
+.delete-form {
+    max-width: max-content;
+    margin: 0 auto;
+}
