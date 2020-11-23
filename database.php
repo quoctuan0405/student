@@ -41,11 +41,16 @@ function create_table_students($servername, $username, $password, $dbase) {
             class VARCHAR(30) NOT NULL
         )";
         mysqli_query($conn, $sql);
-
-        // Tạo sẵn 6 học sinh trong database bằng file seed.sql
-        $sql = file_get_contents("seed.sql");
-        mysqli_multi_query($conn, $sql);
     }
+
+    // Tạo sẵn 6 học sinh trong database bằng file seed.sql nếu bảng student còn trống
+    $sql = "SELECT * FROM students LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    if (!$row) {
+        $sql = file_get_contents("seed.sql");
+    }
+    mysqli_multi_query($conn, $sql);
 
     // Ngắt kết nối
     mysqli_close($conn);
