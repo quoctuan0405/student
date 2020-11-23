@@ -9,6 +9,20 @@ h1 {
     text-align: center;
 }
 
+.search {
+    margin-top: 30px;
+}
+
+.search form {
+    width: 100%;
+    margin: 0;
+}
+
+.search form input {
+    display: block;
+    margin-left: auto;
+}
+
 .add-student {
     padding-left: 15px;
 }

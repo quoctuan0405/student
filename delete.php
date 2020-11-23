@@ -41,7 +41,7 @@
     <form class="delete-form" action="./delete.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 
-        <h3>Bạn có chăc bạn muốn xoá sinh viên này?</h3>
+        <h3>Bạn có chắc bạn muốn xoá sinh viên này?</h3>
 
         <button type="submit">Xoá sinh viên</button>
     </form>

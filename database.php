@@ -29,19 +29,26 @@ function create_table_students($servername, $username, $password, $dbase) {
         echo ("Can't connect to database");
     }
 
-    // Tạo bảng students
+    // Nếu bảng students chưa tồn tại
     $sql = "SELECT 1 FROM students LIMIT 1";
     $table_exists = mysqli_query($conn, $sql);
     if (!$table_exists) {
+        // Tạo bảng students
         $sql = "CREATE TABLE students (
             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             roll_number VARCHAR(30) NOT NULL,
             name VARCHAR(30) NOT NULL,
             class VARCHAR(30) NOT NULL
         )";
-
         mysqli_query($conn, $sql);
+
+        // Tạo sẵn 6 học sinh trong database bằng file seed.sql
+        $sql = file_get_contents("seed.sql");
+        mysqli_multi_query($conn, $sql);
     }
+
+    // Ngắt kết nối
+    mysqli_close($conn);
 }
 
 // Kết nối với cơ sở dữ liệu

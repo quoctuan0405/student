@@ -15,9 +15,9 @@
         // Tạo kết nối với database
         $conn = connect_to_database($servername, $username, $password, $dbase);
 
-        // Nếu là lệnh POST thì xoá sinh viên rổi redirect về trang chủ
+        // Nếu là lệnh POST thì chỉnh sửa thông tin sinh viên rổi redirect về trang chủ
         if (isset($_POST['id']) && isset($_POST['msv']) && isset($_POST['name']) && isset($_POST['class'])) {
-            // Xoá sinh viên khỏi cơ sở dữ liệu
+            // Chỉnh sửa thông tin sinh viên
             $id = mysqli_real_escape_string($conn, $_POST['id']);
             $roll_number = mysqli_real_escape_string($conn, $_POST['msv']);
             $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -37,7 +37,7 @@
 
         // Nếu trong lệnh GET biến id không tồn tại thì redirect về trang chủ
         // Eg: http://localhost/student/delete.php?id=6
-        // Eg: http://localhost/student/delete.php
+        // Eg: http://localhost/student/delete.php -> redirect
         if (!isset($_GET['id'])) {
             header("Location: http://localhost/student/index.php");
         }
